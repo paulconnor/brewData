@@ -1,0 +1,446 @@
+[
+  {
+    "ident": 2002,
+    "ts": "2017-08-16T06:07:57.481+00:00",
+    "exportVersion": "v4",
+    "adminSchemaVersion": "20170801",
+    "name": "brewData",
+    "url_name": "brewData",
+    "comments": "Created with a new empty database.\n1. Click Data Explorer on the Navigation Menu (to the left)\n2. In Data Explorer, enter Author Mode (gear on top right; typical login is Admin...)\n3. Create Tables (look for the \"+\" button in the upper left)\nPlease see https://docops.ca.com/ca-live-api-creator/3-2/en/creating-apis/database-creation",
+    "status": null,
+    "is_active": true,
+    "account_ident": 1000,
+    "authprovider_ident": 1000,
+    "@metadata": {
+      "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport/2002",
+      "checksum": "A:8437185045306ab7",
+      "nonpersistent": [
+        "exportVersion",
+        "adminSchemaVersion"
+      ]
+    },
+    "Topics": [],
+    "Rules": [
+      {
+        "ident": 2041,
+        "ts": "2017-08-16T06:34:44.697+00:00",
+        "entity_name": "main:brew_data",
+        "attribute_name": null,
+        "prop1": null,
+        "prop2": null,
+        "prop3": null,
+        "prop4": "javascript",
+        "prop5": null,
+        "rule_text1": "if (row.temp > 90) {\r\n    var msg = row.beer_name + \" is over the recommended temperature of 90, it just recorded\" + row.temp;\r\n    SysUtility.publishMessage(\"MQTT_conn\",\"BrewData\",msg, null);\r\n    return true;\r\n}\r\nelse{\r\n    return true;\r\n}\r\n",
+        "rule_text2": null,
+        "rule_text3": null,
+        "rule_text4": null,
+        "rule_text5": null,
+        "predicate": null,
+        "name": null,
+        "auto_name": "Validation if (row.temp > 90) {\r\n    var msg = row.beer_name + \" is over the recommended temperature of 90, it just recorded\" + row.temp;\r\n    SysU...",
+        "verbs": null,
+        "comments": null,
+        "active": true,
+        "sqlable": false,
+        "jit": false,
+        "project_ident": 2002,
+        "ruletype_ident": 5,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Rules/2041",
+          "checksum": "A:033f85df715b8226"
+        },
+        "RuleTopics": []
+      }
+    ],
+    "ApiKeys": [
+      {
+        "ident": 2011,
+        "ts": "2017-08-16T06:07:57.541+00:00",
+        "name": "Admin key",
+        "description": "Created as part of this API. Feel free to change or delete this auth token.",
+        "apikey": "brewingwithiot",
+        "status": "A",
+        "expiration": null,
+        "logging": "*=FINE",
+        "user_identifier": null,
+        "data": null,
+        "origin": null,
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.ApiKeys/2011",
+          "checksum": "A:5a4c94f6ecffb6aa"
+        }
+      }
+    ],
+    "ApiVersions": [
+      {
+        "ident": 2002,
+        "ts": "2017-08-16T06:07:57.944+00:00",
+        "name": "v1",
+        "comments": null,
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.ApiVersions/2002",
+          "checksum": "A:5fdc9c0c64c325a9"
+        },
+        "Resources": []
+      }
+    ],
+    "Applications": [],
+    "Connections": [
+      {
+        "ident": 2000,
+        "ts": "2017-08-16T06:13:05.804+00:00",
+        "name": "MQTT_conn",
+        "description": null,
+        "is_active": true,
+        "connect_code": null,
+        "disconnect_code": null,
+        "provider_ident": 3,
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Connections/2000",
+          "checksum": "A:28a3012c3f21e647"
+        },
+        "ConnectionParameters": [
+          {
+            "ident": 2000,
+            "ts": "2017-08-16T06:13:05.964+00:00",
+            "value": "tcp://192.168.99.100:1883",
+            "type_ident": 1,
+            "description": null,
+            "connection_ident": 2000,
+            "@metadata": {
+              "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Connections.ConnectionParameters/2000",
+              "checksum": "A:159b9cca2a0dbfd2"
+            }
+          },
+          {
+            "ident": 2001,
+            "ts": "2017-08-16T06:13:05.097+00:00",
+            "value": "LAC_mqtt_1",
+            "type_ident": 3,
+            "description": null,
+            "connection_ident": 2000,
+            "@metadata": {
+              "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Connections.ConnectionParameters/2001",
+              "checksum": "A:f8b35f94dab5ff7d"
+            }
+          },
+          {
+            "ident": 2002,
+            "ts": "2017-08-16T06:13:05.983+00:00",
+            "value": "true",
+            "type_ident": 10,
+            "description": null,
+            "connection_ident": 2000,
+            "@metadata": {
+              "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Connections.ConnectionParameters/2002",
+              "checksum": "A:23f7505fe2f1473d"
+            }
+          },
+          {
+            "ident": 2003,
+            "ts": "2017-08-16T06:13:05.987+00:00",
+            "value": "60",
+            "type_ident": 13,
+            "description": null,
+            "connection_ident": 2000,
+            "@metadata": {
+              "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Connections.ConnectionParameters/2003",
+              "checksum": "A:ce6f1a54fbd1f57c"
+            }
+          }
+        ]
+      }
+    ],
+    "DbaseSchemas": [
+      {
+        "ident": 2004,
+        "name": "Managed database: mgucd",
+        "comments": "Created using API Creation Wizard - Managed Data API",
+        "url": "jdbc:derby:directory:ManagedData;create=true",
+        "catalog_name": null,
+        "schema_name": "mgucd",
+        "user_name": "mgucd",
+        "password": null,
+        "salt": null,
+        "active": true,
+        "status": null,
+        "dbasetype_ident": 17,
+        "prefix": "main",
+        "datasource_name": null,
+        "schema_editable": true,
+        "role_strategy": "simplicity",
+        "table_includes": null,
+        "proc_includes": null,
+        "table_excludes": null,
+        "proc_excludes": null,
+        "max_connections": 20,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.DbaseSchemas/2004",
+          "checksum": "A:d249352b8a1f9678"
+        },
+        "NonPersistentAttributes": [],
+        "TableInfos": [],
+        "ViewInfos": []
+      }
+    ],
+    "EventHandlers": [],
+    "Functions": [],
+    "Handlers": [],
+    "Listeners": [
+      {
+        "ident": 2000,
+        "ts": "2017-08-16T06:16:05.088+00:00",
+        "name": "Process IOT Data",
+        "description": null,
+        "is_active": true,
+        "code": "// Listener code goes here or check out examples ( see top right dropdown menu ) \ninputData = message.toString();\nlog.debug ('WHAT CAME IN:'+ inputData);\n\nvar rightNow = new Date();\ndata2 = inputData.replace(/}/g, ',\\\"time_stamp\\\":\\\"'+ rightNow.toISOString() +'\\\"}' );\n\nlog.debug(\"DATA2\"+ data2);\n\n\nvar obj = JSON.parse(data2);\n\nlog.debug(\"parsed OK\");\n\n\nvar resourceURL = 'http://localhost:8080/rest/default/brewData/v1/main:brew_data';\nvar parms = {};\nvar settings = { \"headers\": {\"Authorization\" : \"CALiveAPICreator brewingwithiot:1\"}};\nvar postResponse = listenerUtil.restPost(resourceURL, parms, settings, obj);\nlog.debug(postResponse);\nvar jsonPost = JSON.parse(postResponse);\n",
+        "logging_level": 2,
+        "connection_ident": 2000,
+        "provider_ident": 3,
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Listeners/2000",
+          "checksum": "A:cde9da06d20538a6"
+        },
+        "ListenerParameters": [
+          {
+            "ident": 2000,
+            "ts": "2017-08-16T06:16:05.268+00:00",
+            "value": "BrewData",
+            "type_ident": 1,
+            "description": null,
+            "listener_ident": 2000,
+            "@metadata": {
+              "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Listeners.ListenerParameters/2000",
+              "checksum": "A:f01bfd5d018e9a1d"
+            }
+          }
+        ]
+      },
+      {
+        "ident": 2100,
+        "ts": "2017-08-16T06:37:59.811+00:00",
+        "name": "Register API with consul",
+        "description": null,
+        "is_active": true,
+        "code": "// Listener code goes here or check out examples ( see top right dropdown menu ) \n// Build the new service to Register\nvar NewService = Java.type(\"com.ecwid.consul.v1.agent.model.NewService\");\nvar newService = new NewService();\nnewService.setId(\"lac01\");\nnewService.setName(\"Brewing Demo Service\");\nnewService.setTags(Java.type(\"java.util.Arrays\").asList(\"My LAC API\", \"Awesome\"));\nnewService.setPort(8080);\n\nvar check = new NewService.Check();\n// Using the MAC docker special localhost to register the healthCheck\nvar hostname_or_ip = '192.168.43.42'\ncheck.setHttp(\"http://\" + hostname_or_ip + \":8080/rest/abl/admin/v2/@heartbeat\");\ncheck.setInterval(\"2s\");\nnewService.setCheck(check);\n\nvar ConsulClient = Java.type(\"com.ecwid.consul.v1.ConsulClient\");\nvar client = new ConsulClient(\"192.168.99.100\");\nclient.agentServiceRegister(newService);\n",
+        "logging_level": 2,
+        "connection_ident": null,
+        "provider_ident": 1,
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Listeners/2100",
+          "checksum": "A:6ca60c7eab68173f"
+        },
+        "ListenerParameters": []
+      },
+      {
+        "ident": 2200,
+        "ts": "2017-08-17T05:49:57.566+00:00",
+        "name": "De-Register API with consul",
+        "description": null,
+        "is_active": true,
+        "code": "// Listener code goes here or check out examples ( see top right dropdown menu ) \nvar ConsulClient = Java.type(\"com.ecwid.consul.v1.ConsulClient\");\nvar client = new ConsulClient(\"192.168.99.100\");\nclient.agentServiceDeregister(\"lac01\");\n",
+        "logging_level": 2,
+        "connection_ident": null,
+        "provider_ident": 2,
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Listeners/2200",
+          "checksum": "A:6857299711678d06"
+        },
+        "ListenerParameters": []
+      },
+      {
+        "ident": 2300,
+        "ts": "2017-08-22T02:08:51.659+00:00",
+        "name": "DEMO",
+        "description": null,
+        "is_active": false,
+        "code": "// Listener code goes here or check out examples ( see top right dropdown menu ) \n",
+        "logging_level": 2,
+        "connection_ident": null,
+        "provider_ident": 4,
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Listeners/2300",
+          "checksum": "A:303cf1a7262f8164"
+        },
+        "ListenerParameters": [
+          {
+            "ident": 2100,
+            "ts": "2017-08-22T02:08:51.825+00:00",
+            "value": null,
+            "type_ident": 3,
+            "description": null,
+            "listener_ident": 2300,
+            "@metadata": {
+              "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Listeners.ListenerParameters/2100",
+              "checksum": "A:1c66cdd3c8695230"
+            }
+          }
+        ]
+      }
+    ],
+    "NamedFilters": [],
+    "NamedSorts": [],
+    "ProjectLibraries": [],
+    "ProjectOptions": [],
+    "ProjectProblems": [],
+    "Relationships": [],
+    "Roles": [
+      {
+        "ident": 2010,
+        "ts": "2017-08-16T06:07:57.817+00:00",
+        "name": "API Documentation",
+        "description": "This role is special and is used when generating OpenAPI(Swagger) documentation. It is recognized by the name special name 'API Documentation' and used only for documentation calls.\n Any Resources, Tables, Views, Procedures etc. that are defined and enabled by this role are used to generate the OpenAPI(Swagger) documentation.\n If this role is assigned to a user it will NOT be used for execution permissions.\n If this role is removed or otherwise unavailable, the Swagger/OpenAPI documentation will be nothing more that a name and version.",
+        "default_table_permission": "A",
+        "default_view_permission": "R",
+        "default_apivisibility": "TVPRMF",
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Roles/2010",
+          "checksum": "A:56480d8e7b1d04a7"
+        },
+        "ApiKeyRoles": [],
+        "ApiVisibility": [],
+        "PermissionData": [],
+        "TablePermissions": []
+      },
+      {
+        "ident": 2011,
+        "ts": "2017-08-16T06:07:57.831+00:00",
+        "name": "Full access",
+        "description": "Full access to everything in this project",
+        "default_table_permission": "A",
+        "default_view_permission": "R",
+        "default_apivisibility": "TVPRMF",
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Roles/2011",
+          "checksum": "A:21bc6d86db068173"
+        },
+        "ApiKeyRoles": [
+          {
+            "ident": 2013,
+            "ts": "2017-08-16T06:07:57.837+00:00",
+            "apikey_ident": 2011,
+            "role_ident": 2011,
+            "@metadata": {
+              "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Roles.ApiKeyRoles/2013",
+              "checksum": "A:d70acbbe0dc2fb0a"
+            }
+          }
+        ],
+        "ApiVisibility": [],
+        "PermissionData": [],
+        "TablePermissions": []
+      },
+      {
+        "ident": 2012,
+        "ts": "2017-08-16T06:07:57.834+00:00",
+        "name": "Read only",
+        "description": "Read-only access to everything in this project",
+        "default_table_permission": "R",
+        "default_view_permission": "R",
+        "default_apivisibility": "TVPRMF",
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Roles/2012",
+          "checksum": "A:dfa5d47bf09f387a"
+        },
+        "ApiKeyRoles": [],
+        "ApiVisibility": [],
+        "PermissionData": [],
+        "TablePermissions": []
+      }
+    ],
+    "ScheduleItems": [
+      {
+        "ident": 2000,
+        "ts": "2017-08-17T05:33:32.356+00:00",
+        "name": "Check IOT Data",
+        "code": "// Timer code goes here\n//log.debug(\"My timer has executed!\");\n// Timer code goes here\n\n//Get the time and 5 mins behind\nvar rightNow = new Date();\nvar searchDate = new Date(rightNow.getTime() - 5*60000);\n\n//Log for good luck\nlog.debug(rightNow);\nlog.debug(searchDate);\n\n//Create the Search params and urlencode + auth token\nvar search = encodeURI('sysfilter=greaterequal_or(time_stamp: timestamp('+ searchDate.toISOString() +'))');\nvar settings = {\"headers\": {\"Authorization\": \"CALiveAPICreator brewingwithiot:1\"}};\nvar url_to_call = 'http://localhost:8080/rest/default/brewData/v1/main:brew_data?'+search;\n\n//make the call to the resource\nvar json = timerUtil.restGet(url_to_call, null, settings);\n\n// Parse the response and count the objects\nvar respObject = JSON.parse(json);\nvar totalAllowed = respObject.length;\n\n// Some debug\nlog.debug(JSON.stringify(respObject));\nlog.debug(totalAllowed);\n\n\n// check against required amount and push to MQTT if needed\n\nif (totalAllowed <5)\n{\n    var msg = totalAllowed + ' messages from beer is not enough';\n    // Publish a MQTT message\n    timerUtil.publishMessage(\"MQTT_conn\",\"BrewData\",msg, null);\n   // log.debug(scheduledDate + \"My timer has executed!\");\n\n}\n",
+        "comments": "",
+        "is_active": true,
+        "start_time": null,
+        "end_time": null,
+        "no_overlap": false,
+        "num_servers": 0,
+        "crontab": "0 /5 * ? * * *",
+        "log_error_only": false,
+        "logging_level": 4,
+        "max_log_age": 2592000,
+        "schedule_type_ident": 2,
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.ScheduleItems/2000",
+          "checksum": "A:084d4d0716ae3d43"
+        }
+      }
+    ],
+    "Users": [
+      {
+        "ident": 2006,
+        "ts": "2017-08-16T06:07:57.905+00:00",
+        "name": "admin",
+        "fullname": "Admin Account with full access",
+        "email": null,
+        "status": "A",
+        "roles": "Full access",
+        "data": null,
+        "comments": null,
+        "apikey_lifespan": null,
+        "password_hash": "XCa8RX9fcx/iKWVddyrjPQIHO9XyiXRi5pebN0moBbQIUMEYmv9hD3+P8BtmGxYbF/VCFCW5jkoPRihJ2WN4GQ==",
+        "password_salt": "YId0zdQZnz/6XgY1OWwD0IhAB3BQPiYmBx/fLVkY",
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Users/2006",
+          "checksum": "A:aca4dd11d41b736d"
+        }
+      },
+      {
+        "ident": 2005,
+        "ts": "2017-08-16T06:07:57.853+00:00",
+        "name": "demo",
+        "fullname": "Demo Account with full access",
+        "email": null,
+        "status": "A",
+        "roles": "Full access",
+        "data": null,
+        "comments": null,
+        "apikey_lifespan": null,
+        "password_hash": "Uu5N1cjcytZUC6ugpOq8OaJljxb1FQEBvXVvxL2pTz00JnuIgXjqajncgBryVxSlaZHX7nlDtyzArEjvKdsTNA==",
+        "password_salt": "akapSvU8P3x8IstfQUGnauuNkMZ+NQ+0mgaDAa0g",
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Users/2005",
+          "checksum": "A:ed1103b3030b5a96"
+        }
+      },
+      {
+        "ident": 2007,
+        "ts": "2017-08-16T06:07:57.92+00:00",
+        "name": "guest",
+        "fullname": "Guest Account with read-only access",
+        "email": null,
+        "status": "A",
+        "roles": "Read only",
+        "data": null,
+        "comments": null,
+        "apikey_lifespan": null,
+        "password_hash": "7hDlv8W/fIk/Z77wNm75d180VCr81AG+gkvm6y6hHJsS4kApsym9WSmM35sjMPdWl3hNTKdiOvixHUWJwUmjtA==",
+        "password_salt": "Lnjq0oir8yfEO0xWSdHxmhYsGSfW/SljTYvcjvbF",
+        "project_ident": 2002,
+        "@metadata": {
+          "href": "http://localhost:8080/rest/abl/admin/v2/ProjectExport.Users/2007",
+          "checksum": "A:7ef2086e229acd75"
+        }
+      }
+    ]
+  }
+]
